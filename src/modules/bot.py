@@ -9,7 +9,7 @@ import importlib
 import traceback
 from os.path import splitext, basename
 from src.common import config, utils, settings
-from src.detection import detection
+# from src.detection import detection
 from src.routine import components
 from src.routine.routine import Routine
 from src.command_book.command_book import CommandBook
@@ -77,7 +77,7 @@ class Bot(Configurable):
 
         if not settings.rent_frenzy:
             print('\n[~] Initializing detection algorithm:\n')
-            self.model = detection.load_model()
+            # self.model = detection.load_model() # fuck you tensorflow
             print('\n[~] Initialized detection algorithm')
         
         self.ready = True
@@ -112,19 +112,20 @@ class Bot(Configurable):
                         and time.time() - float(config.latest_solved_rune) >= (int(settings.rune_cd_min) * 60) \
                         or config.should_solve_rune \
                         or not self.in_rune_buff) :
-                    if not self.model:
-                        self.model = detection.load_model()
-                    if self._solve_rune(self.model):
-                        self.solve_rune_fail_count = 0
-                    else:
-                        self.solve_rune_fail_count = self.solve_rune_fail_count + 1
-                    if self.solve_rune_fail_count >= 2 and settings.auto_change_channel:
-                        print("max try, auto change channel")
-                        change_action = components.ChangeChannel(max_rand=40)
-                        change_action.execute()
-                    elif self.solve_rune_fail_count >= 2:
-                        # self.solve_rune_fail_count = 0
-                        pass
+                    # if not self.model:
+                    #     self.model = detection.load_model()
+                    # if self._solve_rune(self.model):
+                    #     self.solve_rune_fail_count = 0
+                    # else:
+                    #     self.solve_rune_fail_count = self.solve_rune_fail_count + 1
+                    # if self.solve_rune_fail_count >= 2 and settings.auto_change_channel:
+                    #     print("max try, auto change channel")
+                    #     change_action = components.ChangeChannel(max_rand=40)
+                    #     change_action.execute()
+                    # elif self.solve_rune_fail_count >= 2:
+                    #     # self.solve_rune_fail_count = 0
+                    #     pass
+                    print(f'hey got rune. ')
                 config.routine.next_step()
             else:
                 time.sleep(0.03)
