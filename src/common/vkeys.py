@@ -124,9 +124,9 @@ KEY_MAP = {
 #     C Struct Definitions      #
 #################################
 # wintypes.ULONG_PTR = wintypes.WPARAM
-# d_key = None
-# if settings.driver_key == True:
-#     d_key = driver_key.DriverKey()
+d_key = None
+if settings.driver_key == True:
+    d_key = driver_key.DriverKey()
 
 # class KeyboardInput(ctypes.Structure):
 #     _fields_ = (('wVk', wintypes.WORD),
