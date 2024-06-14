@@ -363,7 +363,7 @@ def press(key, n=1, down_time=0.05, up_time=0.08):
     :param up_time:     Duration of release (in seconds).
     :return:            None
     """
-
+    print(f'pressing {key=}')
     for _ in range(n):
         if key == '':
             break

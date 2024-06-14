@@ -4,7 +4,7 @@ from src.routine.components import Command, CustomKey, SkillCombination, Fall, B
 from src.common.vkeys import press, key_down, key_up
 import cv2
 
-IMAGE_DIR = config.RESOURCES_DIR + '/command_books/night_lord/'
+IMAGE_DIR = config.RESOURCES_DIR + '/command_books/cadena/'
 
 # List of key mappings
 class Key:
