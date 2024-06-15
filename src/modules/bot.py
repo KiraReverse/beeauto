@@ -244,15 +244,15 @@ class Bot(Configurable):
                         print('Solution found, entering result')
                         for arrow in solution:
                             print(f'{arrow=}')
-                            # # press(arrow, 1, down_time=0.1)
-                            # if arrow=='u':
-                            #     press('up', 1, down_time=0.003)
-                            # elif arrow=='d':
-                            #     press('down', 1, down_time=0.003)
-                            # elif arrow=='l':
-                            #     press('left', 1, down_time=0.003)
-                            # elif arrow=='r':
-                            #     press('right', 1, down_time=0.003)
+                            # press(arrow, 1, down_time=0.1)
+                            if arrow=='u':
+                                press('up', 1, down_time=0.003)
+                            elif arrow=='d':
+                                press('down', 1, down_time=0.003)
+                            elif arrow=='l':
+                                press('left', 1, down_time=0.003)
+                            elif arrow=='r':
+                                press('right', 1, down_time=0.003)
                         time.sleep(1)
                         find_rune_buff = False
                         for _ in range(2):
