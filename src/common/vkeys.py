@@ -210,7 +210,11 @@ def key_down(key,down_time=0.05):
                     # default input method
                     # x = Input(type=INPUT_KEYBOARD, ki=KeyboardInput(wVk=KEY_MAP[k]))
                     # user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
-                    keydown(k) # replace virtual key or driver key to interception lol
+                    # keydown(k) # replace virtual key or driver key to interception lol
+                    if k in ("left", "right", "up", "down"):
+                        keydown_arrow(k)
+                    else:
+                        keydown(k)
                 if len(key_combination) > 1:
                     time.sleep(0.02 * (0.9 + 0.7 * random()))
     time.sleep(down_time * (0.8 + 0.7 * random()))
@@ -288,7 +292,11 @@ def key_up(key,up_time=0.05):
                     # default input method
                     # x = Input(type=INPUT_KEYBOARD, ki=KeyboardInput(wVk=KEY_MAP[k], dwFlags=KEYEVENTF_KEYUP))
                     # user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
-                    keyup(k) # dont need to convert to hexa lol interception lol
+                    # keyup(k) # dont need to convert to hexa lol interception lol
+                    if k in ("left", "right", "up", "down"):
+                        keyup_arrow(k)
+                    else:
+                        keyup(k)
                 if len(key_combination) > 1:
                     time.sleep(0.04 * (0.9 + 0.7 * random()))
     time.sleep(up_time * (0.9 + 0.6 * random()))
